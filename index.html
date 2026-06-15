@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CryptoKH | Crypto &amp; Binance News</title>
+  <meta name="description" content="Latest Crypto, Binance, Bitcoin news and market analysis" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+    rel="stylesheet" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --gold: #F0B90B;
+      --gold-dark: #C99B00;
+      --gold-glow: rgba(240, 185, 11, 0.18);
+      --dark-bg: #0B0E1A;
+      --card-bg: #111827;
+      --card-border: rgba(240, 185, 11, 0.15);
+      --text-primary: #F1F5F9;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --green: #22C55E;
+      --red: #EF4444;
+      --blue: #3B82F6;
+      --purple: #8B5CF6;
+      --grad-1: linear-gradient(135deg, #F0B90B 0%, #FF6B35 60%, #E91E8C 100%);
+      --grad-2: linear-gradient(135deg, #0B0E1A 0%, #1A1F35 100%);
+      --grad-hero: linear-gradient(135deg, #0B0E1A 0%, #0F1629 40%, #1A0A2E 100%);
+      --font-head: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 12px;
+      --radius-lg: 20px;
+    }
+
+    body {
+      background: var(--dark-bg);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      border-radius: var(--radius);
+    }
+
+    /* AD SLOTS */
+    .ad-slot {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(240, 185, 11, 0.04);
+      border: 1px dashed rgba(240, 185, 11, 0.2);
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ad-slot::before {
+      content: attr(data-label);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      position: absolute;
+      top: 6px;
+      left: 12px;
+    }
+
+    .ad-slot-banner {
+      height: 90px;
+      margin: 8px 0;
+    }
+
+    .ad-slot-sidebar {
+      height: 250px;
+      width: 100%;
+    }
+
+    .ad-slot-content {
+      height: 100px;
+      margin: 24px 0;
+    }
+
+    /* Popunder + Smartlink are script-only, shown as badge */
+    .ad-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(240, 185, 11, 0.1);
+      border: 1px solid rgba(240, 185, 11, 0.25);
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+
+    .ad-zone {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-align: center;
+      padding: 4px 0 0;
+    }
+
+    /* TICKER */
+    .ticker-bar {
+      background: #0D1120;
+      border-bottom: 1px solid rgba(240, 185, 11, 0.1);
+      padding: 8px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      gap: 48px;
+      animation: ticker 30s linear infinite;
+    }
+
+    @keyframes ticker {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .ticker-sym {
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .ticker-price {
+      color: var(--text-muted);
+    }
+
+    .up {
+      color: var(--green);
+    }
+
+    .down {
+      color: var(--red);
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(11, 14, 26, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(240, 185, 11, 0.12);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--grad-1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .logo span {
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    nav {
+      display: flex;
+      gap: 4px;
+    }
+
+    nav a {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--gold);
+      background: var(--gold-glow);
+    }
+
+    .btn-primary {
+      padding: 8px 18px;
+      background: var(--grad-1);
+      border: none;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--grad-hero);
+      padding: 80px 24px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(240, 185, 11, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -80px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(240, 185, 11, 0.1);
+      border: 1px solid rgba(240, 185, 11, 0.25);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+      margin-bottom: 20px;
+    }
+
+    .hero-eyebrow .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: 0.4
+      }
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 .grad {
+      background: var(--grad-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      font-size: 16px;
+      line-height: 1.7;
+      margin-bottom: 28px;
+      max-width: 480px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-outline {
+      padding: 10px 22px;
+      border: 1.5px solid rgba(240, 185, 11, 0.35);
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gold);
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--gold-glow);
+    }
+
+    .hero-stats {
+      background: rgba(17, 24, 39, 0.8);
+      border: 1px solid rgba(240, 185, 11, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      backdrop-filter: blur(8px);
+    }
+
+    .stat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .stat-header h3 {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .live-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    .live-badge::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius);
+      padding: 14px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stat-val {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .stat-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .badge-up {
+      display: inline-block;
+      padding: 2px 8px;
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--green);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .badge-dn {
+      display: inline-block;
+      padding: 2px 8px;
+      background: rgba(239, 68, 68, 0.12);
+      color: var(--red);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* BANNER STRIP */
+    .banner-strip {
+      background: #0D1120;
+      border-top: 1px solid rgba(240, 185, 11, 0.08);
+      border-bottom: 1px solid rgba(240, 185, 11, 0.08);
+      padding: 12px 24px;
+    }
+
+    .banner-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* MAIN LAYOUT */
+    .main-layout {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 40px;
+    }
+
+    /* SECTION HEADER */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 22px;
+      background: var(--grad-1);
+      border-radius: 2px;
+    }
+
+    .see-all {
+      font-size: 13px;
+      color: var(--gold);
+      font-weight: 600;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .see-all:hover {
+      opacity: 1;
+    }
+
+    /* FEATURED POST */
+    .featured-post {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 32px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .featured-post:hover {
+      border-color: rgba(240, 185, 11, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .featured-img {
+      width: 100%;
+      height: 260px;
+      background: linear-gradient(135deg, #1A1F35 0%, #0F1629 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(17, 24, 39, 0.9) 100%);
+    }
+
+    .featured-img .feat-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background: var(--grad-1);
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 6px;
+      z-index: 2;
+      letter-spacing: 0.5px;
+    }
+
+    .featured-body {
+      padding: 24px;
+    }
+
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-gold {
+      background: rgba(240, 185, 11, 0.12);
+      color: var(--gold);
+    }
+
+    .tag-blue {
+      background: rgba(59, 130, 246, 0.12);
+      color: var(--blue);
+    }
+
+    .tag-green {
+      background: rgba(34, 197, 94, 0.12);
+      color: var(--green);
+    }
+
+    .tag-purple {
+      background: rgba(139, 92, 246, 0.12);
+      color: var(--purple);
+    }
+
+    .post-title {
+      font-family: var(--font-head);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+
+    .featured-post:hover .post-title {
+      color: var(--gold);
+    }
+
+    .post-excerpt {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin-bottom: 18px;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .author-av {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--grad-1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    /* POST GRID */
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .post-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .post-card:hover {
+      border-color: rgba(240, 185, 11, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .card-img {
+      height: 160px;
+      background: linear-gradient(135deg, #1A1F35 0%, #0F1629 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card-title {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+      transition: color 0.2s;
+    }
+
+    .post-card:hover .card-title {
+      color: var(--gold);
+    }
+
+    .card-excerpt {
+      color: var(--text-muted);
+      font-size: 13px;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    /* LIST POSTS */
+    .post-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .list-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+
+    .list-item:hover {
+      border-color: rgba(240, 185, 11, 0.3);
+    }
+
+    .list-thumb {
+      width: 80px;
+      height: 72px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1A1F35 0%, #0F1629 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .list-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .list-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      transition: color 0.2s;
+    }
+
+    .list-item:hover .list-title {
+      color: var(--gold);
+    }
+
+    .list-excerpt {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .sidebar-widget {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 22px;
+    }
+
+    .widget-title {
+      font-family: var(--font-head);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .widget-title .wicon {
+      font-size: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .price-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .coin-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .coin-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .coin-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .coin-sym {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .coin-price-col {
+      text-align: right;
+    }
+
+    .coin-price {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .coin-change {
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .top-item {
+      display: flex;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .top-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .top-num {
+      font-family: var(--font-head);
+      font-size: 20px;
+      font-weight: 800;
+      color: rgba(240, 185, 11, 0.2);
+      min-width: 28px;
+    }
+
+    .top-info .top-title {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      transition: color 0.2s;
+    }
+
+    .top-item:hover .top-title {
+      color: var(--gold);
+    }
+
+    .top-date {
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .newsletter-form input[type="email"] {
+      width: 100%;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      color: var(--text-primary);
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .newsletter-form input:focus {
+      border-color: rgba(240, 185, 11, 0.4);
+    }
+
+    .newsletter-form .btn-primary {
+      width: 100%;
+      padding: 10px;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    .newsletter-form p {
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+
+    .cat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cat-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .cat-item:hover {
+      background: var(--gold-glow);
+      border-color: rgba(240, 185, 11, 0.25);
+      color: var(--gold);
+    }
+
+    .cat-count {
+      background: rgba(240, 185, 11, 0.1);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #080B15;
+      border-top: 1px solid rgba(240, 185, 11, 0.1);
+      padding: 60px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+
+    .footer-about p {
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 14px 0 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(240, 185, 11, 0.08);
+      border: 1px solid rgba(240, 185, 11, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-head);
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--gold);
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li a {
+      font-size: 13px;
+      color: var(--text-muted);
+      transition: color 0.2s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--text-primary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-bottom p {
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    .footer-bottom .ad-badges-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .post-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 48px 16px 40px;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    ADSTERRA POPUNDER — paste your script tag here inside <head> or just after <body>
+    <script type="text/javascript">
+      atOptions = { 'key' : 'YOUR_POPUNDER_KEY', 'format' : 'iframe', 'height' : 60, 'width' : 468, 'params' : {} };
+    </script>
+    <script type="text/javascript" src="//www.topcreativeformat.com/YOUR_POPUNDER_KEY/invoke.js"></script>
+  -->
+
+  <!--
+    ADSTERRA SOCIAL BAR — paste your script tag right after <body>
+    <script async="async" data-cfasync="false"
+      src="//pl00000000.topcreativeformat.com/YOUR_SOCIAL_BAR_KEY/invoke.js">
+    </script>
+  -->
+
+  <!-- PRICE TICKER -->
+  <div class="ticker-bar" aria-label="Live crypto prices">
+    <div class="ticker-inner">
+      <span class="ticker-item"><span class="ticker-sym">BTC</span><span class="ticker-price">$67,420.50</span><span
+          class="up">+2.4%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">ETH</span><span class="ticker-price">$3,512.80</span><span
+          class="up">+1.8%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">BNB</span><span class="ticker-price">$598.20</span><span
+          class="up">+3.1%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">SOL</span><span class="ticker-price">$178.40</span><span
+          class="down">-0.9%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">XRP</span><span class="ticker-price">$0.6210</span><span
+          class="up">+5.2%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">DOGE</span><span class="ticker-price">$0.1642</span><span
+          class="up">+7.4%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">ADA</span><span class="ticker-price">$0.4820</span><span
+          class="down">-1.2%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">AVAX</span><span class="ticker-price">$38.90</span><span
+          class="up">+4.0%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">BTC</span><span class="ticker-price">$67,420.50</span><span
+          class="up">+2.4%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">ETH</span><span class="ticker-price">$3,512.80</span><span
+          class="up">+1.8%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">BNB</span><span class="ticker-price">$598.20</span><span
+          class="up">+3.1%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">SOL</span><span class="ticker-price">$178.40</span><span
+          class="down">-0.9%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">XRP</span><span class="ticker-price">$0.6210</span><span
+          class="up">+5.2%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">DOGE</span><span class="ticker-price">$0.1642</span><span
+          class="up">+7.4%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">ADA</span><span class="ticker-price">$0.4820</span><span
+          class="down">-1.2%</span></span>
+      <span class="ticker-item"><span class="ticker-sym">AVAX</span><span class="ticker-price">$38.90</span><span
+          class="up">+4.0%</span></span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="/" class="logo">
+        <div class="logo-icon">&#x20BF;</div>
+        <span>CryptoKH</span>
+      </a>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Binance</a>
+        <a href="#">Bitcoin</a>
+        <a href="#">DeFi</a>
+        <a href="#">NFT</a>
+        <a href="#">Analysis</a>
+        <a href="#">News</a>
+      </nav>
+      <div>
+        <button class="btn-primary">Subscribe</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow"><span class="dot"></span>Live Market Update</div>
+        <h1>Latest <span class="grad">Crypto &amp; Binance</span><br />News Worldwide</h1>
+        <p>Track the crypto market, Bitcoin and BNB analysis, and the latest breaking news from Binance — everything you
+          need in one place.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" style="padding:12px 28px;font-size:15px;"> <a
+              href="https://lewisfenxysportclub.blogspot.com">Read News</a> </button>
+          <button class="btn-outline">Live Market</button>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-header">
+          <h3>Crypto Market Today</h3>
+          <span class="live-badge">Live</span>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-label">Bitcoin (BTC)</div>
+            <div class="stat-val" style="color:#F0B90B;">$67,420</div>
+            <div class="stat-sub"><span class="badge-up">+2.4%</span> 24h</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">BNB</div>
+            <div class="stat-val" style="color:#F0B90B;">$598.20</div>
+            <div class="stat-sub"><span class="badge-up">+3.1%</span> 24h</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Ethereum (ETH)</div>
+            <div class="stat-val" style="color:#8B5CF6;">$3,512</div>
+            <div class="stat-sub"><span class="badge-up">+1.8%</span> 24h</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Market Cap</div>
+            <div class="stat-val" style="color:#22C55E;">$2.4T</div>
+            <div class="stat-sub"><span class="badge-up">+1.9%</span> 24h</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADSTERRA BANNER BAR — Top (728x90 or responsive) -->
+  <div class="banner-strip">
+    <div class="banner-strip-inner">
+      <div class="ad-slot ad-slot-banner" data-label="Adsterra - Banner Bar Ad">
+        <!-- PASTE YOUR ADSTERRA BANNER CODE HERE -->
+      </div>
+      <div class="ad-zone">Advertisement</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT + SIDEBAR -->
+  <div class="main-layout">
+
+    <!-- MAIN -->
+    <main>
+      <div class="section-head">
+        <h2 class="section-title">Breaking News</h2>
+        <a href="#" class="see-all">View All</a>
+      </div>
+
+      <article class="featured-post">
+        <div class="featured-img">
+          <span style="z-index:1;position:relative;">&#x20BF;</span>
+          <span class="feat-badge">BREAKING</span>
+        </div>
+        <div class="featured-body">
+          <div class="post-tags">
+            <span class="tag tag-gold">Bitcoin</span>
+            <span class="tag tag-blue">Binance</span>
+            <span class="tag tag-green">Bullish</span>
+          </div>
+          <h2 class="post-title">Bitcoin Breaks $67,000 Again — ETF Inflows Reach $2 Billion in One Week</h2>
+          <p class="post-excerpt">The crypto market continues to surge as Bitcoin reclaims the strong $67,000 level,
+            fueled by heavy institutional buying and record-breaking ETF inflows from major asset managers...</p>
+          <div class="post-meta">
+            <div class="meta-item">
+              <div class="author-av">KR</div>
+              <span>Kiry Rath</span>
+            </div>
+            <div class="meta-item">June 15, 2026</div>
+            <div class="meta-item">5 min read</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ADSTERRA SMARTLINK — In-content zone -->
+      <div class="ad-slot ad-slot-content" data-label="Adsterra - Smartlink Zone">
+        <!-- PASTE YOUR ADSTERRA SMARTLINK SCRIPT HERE -->
+      </div>
+      <div class="ad-zone" style="margin-bottom:24px;">Advertisement</div>
+
+      <div class="section-head">
+        <h2 class="section-title">Latest News</h2>
+        <a href="#" class="see-all">View All</a>
+      </div>
+      <div class="post-grid">
+        <article class="post-card">
+          <div class="card-img">&#x1F4B0;</div>
+          <div class="card-body">
+            <div class="post-tags"><span class="tag tag-gold">BNB</span><span class="tag tag-blue">Binance</span></div>
+            <h3 class="card-title">Binance Adds New Staking Feature for BNB Chain Users</h3>
+            <p class="card-excerpt">Binance Exchange has announced Auto-Compounding Staking for BNB holders, offering
+              yields up to 18% APY...</p>
+            <div class="post-meta" style="font-size:12px;"><span>June 14, 2026</span><span>3 min read</span></div>
+          </div>
+        </article>
+        <article class="post-card">
+          <div class="card-img">&#x1F4C8;</div>
+          <div class="card-body">
+            <div class="post-tags"><span class="tag tag-green">DeFi</span><span class="tag tag-purple">Altcoin</span>
+            </div>
+            <h3 class="card-title">Solana and Avalanche Jump 15% — DeFi TVL Hits $120B</h3>
+            <p class="card-excerpt">Altcoin season appears confirmed as SOL and AVAX lead the charge with major volume
+              spikes across top DEXs...</p>
+            <div class="post-meta" style="font-size:12px;"><span>June 13, 2026</span><span>4 min read</span></div>
+          </div>
+        </article>
+        <article class="post-card">
+          <div class="card-img">&#x1F3E6;</div>
+          <div class="card-body">
+            <div class="post-tags"><span class="tag tag-blue">Regulation</span></div>
+            <h3 class="card-title">SEC Approves Ethereum ETF Options — A Major Win for Crypto</h3>
+            <p class="card-excerpt">The SEC decision sent ETH surging 8% in minutes, marking a historic shift in how
+              regulators view digital assets...</p>
+            <div class="post-meta" style="font-size:12px;"><span>June 12, 2026</span><span>6 min read</span></div>
+          </div>
+        </article>
+        <article class="post-card">
+          <div class="card-img">&#x1F916;</div>
+          <div class="card-body">
+            <div class="post-tags"><span class="tag tag-purple">AI + Crypto</span></div>
+            <h3 class="card-title">Binance AI Trading Bot — Auto-Trade BTC Using Machine Learning</h3>
+            <p class="card-excerpt">Binance has launched an AI-powered trading tool that uses ML models to optimize
+              entry and exit points...</p>
+            <div class="post-meta" style="font-size:12px;"><span>June 11, 2026</span><span>5 min read</span></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- ADSTERRA BANNER — Mid Content -->
+      <div class="ad-slot ad-slot-banner" data-label="Adsterra - Banner Ad (Mid)">
+        <!-- PASTE YOUR ADSTERRA BANNER CODE HERE (300x250 or 728x90) -->
+      </div>
+      <div class="ad-zone" style="margin-bottom:32px;">Advertisement</div>
+
+      <div class="section-head">
+        <h2 class="section-title">Crypto Guides</h2>
+        <a href="#" class="see-all">View All</a>
+      </div>
+      <div class="post-list">
+        <article class="list-item">
+          <div class="list-thumb">&#x1F4DA;</div>
+          <div class="list-content">
+            <div class="post-tags"><span class="tag tag-gold">Beginner</span></div>
+            <h3 class="list-title">How to Register on Binance — Complete Step-by-Step Guide</h3>
+            <p class="list-excerpt">Full walkthrough to sign up on Binance, complete KYC verification, and make your
+              first USDT deposit safely...</p>
+            <div class="post-meta" style="font-size:12px;margin-top:8px;"><span>June 10, 2026</span><span>8 min
+                read</span></div>
+          </div>
+        </article>
+        <article class="list-item">
+          <div class="list-thumb">&#x1F4B8;</div>
+          <div class="list-content">
+            <div class="post-tags"><span class="tag tag-green">Earn</span></div>
+            <h3 class="list-title">Binance Earn 2026 — Best Staking Options with Highest APY</h3>
+            <p class="list-excerpt">Analysis of Binance Flexible Savings, Locked Staking, Launchpad, and Auto-Invest for
+              maximum returns...</p>
+            <div class="post-meta" style="font-size:12px;margin-top:8px;"><span>June 9, 2026</span><span>7 min
+                read</span></div>
+          </div>
+        </article>
+        <article class="list-item">
+          <div class="list-thumb">&#x1F510;</div>
+          <div class="list-content">
+            <div class="post-tags"><span class="tag tag-blue">Security</span></div>
+            <h3 class="list-title">How to Protect Your Crypto Wallet — 10 Security Tips from Binance</h3>
+            <p class="list-excerpt">Covering 2FA, anti-phishing codes, hardware wallets, and withdrawal address
+              whitelists to keep funds safe...</p>
+            <div class="post-meta" style="font-size:12px;margin-top:8px;"><span>June 8, 2026</span><span>6 min
+                read</span></div>
+          </div>
+        </article>
+      </div>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <!-- AD SIDEBAR TOP (300x250) -->
+      <div>
+        <div class="ad-slot ad-slot-sidebar" data-label="Adsterra - Banner 300x250">
+          <!-- PASTE YOUR ADSTERRA 300x250 BANNER CODE HERE -->
+        </div>
+        <div class="ad-zone">Advertisement</div>
+      </div>
+
+      <!-- LIVE PRICES -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title"><span class="wicon">&#x1F4B9;</span> Live Crypto Prices</h3>
+        <div class="price-row">
+          <div class="coin-info">
+            <div class="coin-icon" style="background:rgba(240,185,11,0.15);color:#F0B90B;">&#x20BF;</div>
+            <div>
+              <div class="coin-name">Bitcoin</div>
+              <div class="coin-sym">BTC</div>
+            </div>
+          </div>
+          <div class="coin-price-col">
+            <div class="coin-price">$67,420</div>
+            <div class="coin-change up">+2.4%</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div class="coin-info">
+            <div class="coin-icon" style="background:rgba(139,92,246,0.15);color:#8B5CF6;">&#x039E;</div>
+            <div>
+              <div class="coin-name">Ethereum</div>
+              <div class="coin-sym">ETH</div>
+            </div>
+          </div>
+          <div class="coin-price-col">
+            <div class="coin-price">$3,512</div>
+            <div class="coin-change up">+1.8%</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div class="coin-info">
+            <div class="coin-icon" style="background:rgba(240,185,11,0.15);color:#F0B90B;font-size:10px;">BNB</div>
+            <div>
+              <div class="coin-name">BNB</div>
+              <div class="coin-sym">BNB</div>
+            </div>
+          </div>
+          <div class="coin-price-col">
+            <div class="coin-price">$598.20</div>
+            <div class="coin-change up">+3.1%</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div class="coin-info">
+            <div class="coin-icon" style="background:rgba(99,179,237,0.15);color:#63B3ED;font-size:11px;">SOL</div>
+            <div>
+              <div class="coin-name">Solana</div>
+              <div class="coin-sym">SOL</div>
+            </div>
+          </div>
+          <div class="coin-price-col">
+            <div class="coin-price">$178.40</div>
+            <div class="coin-change down">-0.9%</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div class="coin-info">
+            <div class="coin-icon" style="background:rgba(99,179,237,0.12);color:#63B3ED;font-size:11px;">XRP</div>
+            <div>
+              <div class="coin-name">XRP</div>
+              <div class="coin-sym">XRP</div>
+            </div>
+          </div>
+          <div class="coin-price-col">
+            <div class="coin-price">$0.6210</div>
+            <div class="coin-change up">+5.2%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP ARTICLES -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title"><span class="wicon">&#x1F525;</span> Popular Articles</h3>
+        <div class="top-item">
+          <div class="top-num">01</div>
+          <div class="top-info">
+            <div class="top-title">Bitcoin Halving 2024 — What Happens to BTC Price Next?</div>
+            <div class="top-date">May 28 &middot; 24.5K reads</div>
+          </div>
+        </div>
+        <div class="top-item">
+          <div class="top-num">02</div>
+          <div class="top-info">
+            <div class="top-title">How to Register on Binance and Complete KYC</div>
+            <div class="top-date">May 15 &middot; 18.2K reads</div>
+          </div>
+        </div>
+        <div class="top-item">
+          <div class="top-num">03</div>
+          <div class="top-info">
+            <div class="top-title">Top 10 Binance Earn Coins with Highest APY in 2026</div>
+            <div class="top-date">Jun 1 &middot; 12.8K reads</div>
+          </div>
+        </div>
+        <div class="top-item">
+          <div class="top-num">04</div>
+          <div class="top-info">
+            <div class="top-title">DeFi vs CeFi — Which Path Offers More Growth?</div>
+            <div class="top-date">Jun 5 &middot; 9.4K reads</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CATEGORIES -->
+      <div class="sidebar-widget">
+        <h3 class="widget-title"><span class="wicon">&#x1F4C2;</span> Categories</h3>
+        <div class="cat-list">
+          <div class="cat-item">Bitcoin News <span class="cat-count">48</span></div>
+          <div class="cat-item">Binance Guide <span class="cat-count">35</span></div>
+          <div class="cat-item">DeFi &amp; Web3 <span class="cat-count">29</span></div>
+          <div class="cat-item">NFT &amp; Metaverse <span class="cat-count">22</span></div>
+          <div class="cat-item">Technical Analysis <span class="cat-count">18</span></div>
+          <div class="cat-item">Beginner Guide <span class="cat-count">15</span></div>
+        </div>
+      </div>
+
+      <!-- NEWSLETTER -->
+      <div class="sidebar-widget"
+        style="background:linear-gradient(135deg,rgba(240,185,11,0.08) 0%,rgba(139,92,246,0.08) 100%);">
+        <h3 class="widget-title"><span class="wicon">&#x1F4EC;</span> Newsletter</h3>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">Get the latest Crypto news delivered to
+          your inbox every day.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com" />
+          <button class="btn-primary">Subscribe Now</button>
+          <p>Your email is safe with us.</p>
+        </div>
+      </div>
+
+      <!-- AD SIDEBAR BOTTOM (300x250) -->
+      <div>
+        <div class="ad-slot ad-slot-sidebar" data-label="Adsterra - Banner 300x250 (Bottom)">
+          <!-- PASTE YOUR ADSTERRA 300x250 BANNER CODE HERE -->
+        </div>
+        <div class="ad-zone">Advertisement</div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <div class="logo">
+            <div class="logo-icon">&#x20BF;</div>
+            <span>CryptoKH</span>
+          </div>
+          <p>Your go-to source for Crypto news, Binance guides, Bitcoin analysis, DeFi updates, and market insights —
+            published daily.</p>
+          <div class="social-links">
+            <a class="social-btn" href="#" title="Telegram">T</a>
+            <a class="social-btn" href="#" title="Facebook">F</a>
+            <a class="social-btn" href="#" title="YouTube">Y</a>
+            <a class="social-btn" href="#" title="X / Twitter">X</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul>
+            <li><a href="#">Bitcoin News</a></li>
+            <li><a href="#">Binance Guide</a></li>
+            <li><a href="#">Ethereum</a></li>
+            <li><a href="#">DeFi &amp; Web3</a></li>
+            <li><a href="#">NFT &amp; Metaverse</a></li>
+            <li><a href="#">Altcoins</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides</h4>
+          <ul>
+            <li><a href="#">Register on Binance</a></li>
+            <li><a href="#">Buy Bitcoin</a></li>
+            <li><a href="#">Crypto Wallet Setup</a></li>
+            <li><a href="#">Binance Earn</a></li>
+            <li><a href="#">P2P Trading</a></li>
+            <li><a href="#">Tax &amp; Compliance</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>About</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Disclaimer</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ADSTERRA FOOTER BANNER -->
+      <div class="ad-slot" style="height:90px;margin-bottom:24px;" data-label="Adsterra - Banner Bar (Footer)">
+        <!-- PASTE YOUR ADSTERRA BANNER CODE HERE -->
+      </div>
+      <div class="ad-zone" style="margin-bottom:24px;">Advertisement</div>
+
+      <div class="footer-bottom">
+        <p>&#169; 2026 CryptoKH &middot; Disclaimer: Content on this site is not financial advice.</p>
+        <div class="ad-badges-row">
+          <span class="ad-badge">Adsterra Popunder</span>
+          <span class="ad-badge">Social Bar</span>
+          <span class="ad-badge">Smartlink</span>
+          <span class="ad-badge">Banner Bar</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
